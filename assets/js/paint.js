@@ -3,9 +3,9 @@ function configureListeners() {
 
 
      for (var i = 0; i < images.length; i++) {
-        document.querySelector(images[i].id).addEventListener('mouseover', addOpacity)
-        document.querySelector(images[i].id).addEventListener('mouseout', removeOpacity)
-       //the hardest part of this assignemnt and the part that was preventing me from getting this to work was the code in the Event Listener above, (imagess[i].id), specifically the .id in the element. I couldn't figure that part out after looking through multiple panopto's and I'm still not really sure why that's there. tried looking online as well, so i guess i'm misunderstanding that part of missed something in our learnings
+        document.getElementById(images[i].id).addEventListener('mouseover', addOpacity)
+        document.getElementById(images[i].id).addEventListener('mouseout', removeOpacity)
+       //the hardest part of this assignemnt and the part that was preventing me from getting this to work was the code in the Event Listener above, (images[i].id), specifically the .id in the element. I know we're using the Dom selector for an ID and the images[i] is collecting all of the images in that For loop, but I was confused on the .id. I didn't understand what that was for and couldn't figure that out. In our panopto or in classes, i didn't see us put .id when selecting an ID, so just not sure about that.
     } 
 }
 
