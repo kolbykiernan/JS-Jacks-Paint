@@ -1,13 +1,26 @@
+//this function allows us to connect event listeners to elements in our html page
+//we create a variable called images to assign to all elements with the img tag
+
 function configureListeners() {
     let images = document.getElementsByTagName('img')  
 
-
-     for (var i = 0; i < images.length; i++) {
+//the for loop lets us apply this function to all images 
+ //this will have an event listener that will pass the event type (mouseover) and the listner: the function of what to do when the event type happens
+    
+    for (var i = 0; i < images.length; i++) {
         document.getElementById(images[i].id).addEventListener('mouseover', addOpacity)
         document.getElementById(images[i].id).addEventListener('mouseout', removeOpacity)
-       //the hardest part of this assignemnt and the part that was preventing me from getting this to work was the code in the Event Listener above, (images[i].id), specifically the .id in the element. I know we're using the Dom selector for an ID and the images[i] is collecting all of the images in that For loop, but I was confused on the .id. I didn't understand what that was for and couldn't figure that out. In our panopto or in classes, i didn't see us put .id when selecting an ID, so just not sure about that.
+    //in my first submission, i said i did't understand the .id above and still don't fully understand it.
+    //my guess is since we are collecting all images in our array, we are putting the .id to tie this to each img ID: pn1 - pn9.
+    //i assumed that when we used the term 'case' in our switch statement below, it was able to connect to each id referenced. 
+
     } 
 }
+
+//the two functions below tell us what to do when we hover over the images
+//we're using an if statement to apply the the class "dim" written in our CSS, to the function addOpacity
+//we're going to do the same thing in the function removeOpacity, otherwise, we won't be remove our dim which will confuse the user wher their cursor is
+//we'll also call a function in line 30 which will allow us to reveal the corresponding price and color. this is defined at line 50
 
 function addOpacity(event) {
     if (!this.classList.contains('dim')){
@@ -32,10 +45,15 @@ function removeOpacity(event) {
 
 }
 
+//this function will be plugged into our addOpacity function in the eventlistener and allow us to show the color and price of the paintColor displayed. 
+// the price and colorName variables are what will 'switch' and are referenced in each 'case' to reflect the corresponding color
 function getProductInfo(paintColor) {
     let price;
     let colorName;  
     
+    //Switch lets us change the paintColor based on which img we hover over. We are able to do this with the ID's pn1-pn9. or maybe not still unsure about this..
+    // On our html page these are displayed in divs that create the cube formation that we see.
+     
     switch (paintColor) {
         case 'pn1':           
             price = '$14.99'
@@ -89,7 +107,9 @@ function getProductInfo(paintColor) {
           default:              
     }
 
-    
+    //this function allows us to take the Id's color-price and color-name from our html page and assign them a variable so that we can change the text content.
+    //We can open our dev tools and find where these ID's are on the doc. they are hidden until hovered over.
+    //when this is function is passed into each case of the getProductInfo function, the switch statement is ultimately what allows us to have multiple prices and colors display, representing a dynamic page.
     function updatePrice(colorName, price,)
     {       
         let colorPrice = document.getElementById('color-price')
