@@ -8,11 +8,13 @@ function configureListeners() {
  //this will have an event listener that will pass the event type (mouseover) and the listner: the function of what to do when the event type happens
     
     for (var i = 0; i < images.length; i++) {
-        document.getElementById(images[i].id).addEventListener('mouseover', addOpacity)
-        document.getElementById(images[i].id).addEventListener('mouseout', removeOpacity)
+        images[i].addEventListener('mouseover', addOpacity)
+        images[i]..addEventListener('mouseout', removeOpacity)
     //in my first submission, i said i did't understand the .id above and still don't fully understand it.
     //my guess is since we are collecting all images in our array, we are putting the .id to tie this to each img ID: pn1 - pn9.
     //i assumed that when we used the term 'case' in our switch statement below, it was able to connect to each id referenced. 
+
+        //The part I removed is not needed in here. As in line 5 we already get an array of image elements, we can access these image elements directly
 
     } 
 }
